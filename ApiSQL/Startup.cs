@@ -54,6 +54,7 @@ namespace ApiSQL
                     );
 
             services.AddTransient<ICompraService, CompraService>();
+            services.AddSingleton<IProcesaDatos, ProcesaDatos>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,6 +67,9 @@ namespace ApiSQL
 
             app.UseAuthentication();
             app.UseMvc();
+
+            //IRecibeSuscripcion suscripcion = app.ApplicationServices.GetService<IRecibeSuscripcion>();
+            //suscripcion.PreparaFiltro().GetAwaiter().GetResult();
         }
     }
 }
