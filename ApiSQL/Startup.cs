@@ -43,6 +43,16 @@ namespace ApiSQL
                     }
                 );
 
+            services.AddAuthentication("Bearer")
+                    .AddIdentityServerAuthentication(
+                        options =>
+                        {
+                            options.Authority = urlSeguridad;
+                            options.RequireHttpsMetadata = false;
+                            options.ApiName = apiNameSeguridad;
+                        }
+                    );
+
             services.AddTransient<ICompraService, CompraService>();
         }
 

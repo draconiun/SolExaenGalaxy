@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ApiSQL.Services;
-using Microsoft.AspNetCore.Http;
+﻿using ApiSQL.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiSQL.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CompraController : ControllerBase
     {
         private readonly ICompraService _compraService;

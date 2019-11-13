@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+using System;
 
-namespace ApiSQL
+namespace ApiSeguridad
 {
     public class Program
     {
@@ -20,9 +15,9 @@ namespace ApiSQL
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration((hostingContext, config) => {
-                    IConfigurationRoot configuration = new ConfigurationBuilder()
-                        .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                        .Build();
+                IConfigurationRoot configuration = new ConfigurationBuilder()
+                    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                    .Build();
 
                     config.AddEnvironmentVariables();
                 })
