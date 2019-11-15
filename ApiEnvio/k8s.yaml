@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testapienvio
+spec:
+  selector:
+    matchLabels:
+      app: testapienvio
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: testapienvio
+    spec:
+      containers:
+      - name: testapienvio
+        env:
+        - name: UrlSeguridad
+          value: "http://52.155.233.217:8080/"
+        - name: ApiNameSeguridad
+          value: apisender
+        - name: BusUrl
+          value: "Endpoint=sb://busexamenayma.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=JWfQUoBUVCb2VbYbly/UMqTPG461QKd6hPAG+nnpfdc="
+        - name: BusTopic
+          value: topiccompra
+        image: aaronma/testapienvio:latest
+        imagePullPolicy: Always        
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: testapienvio
+  labels:
+    app: testapienvio
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+      name: http-traffic
+  selector:
+    app: testapienvio
+  type: LoadBalancer

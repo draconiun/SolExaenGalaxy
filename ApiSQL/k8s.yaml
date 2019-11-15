@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testapisql
+spec:
+  selector:
+    matchLabels:
+      app: testapisql
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: testapisql
+    spec:
+      containers:
+      - name: testapisql
+        env:
+        - name: CnnBd
+          value: "Server=tcp:servexamayma.database.windows.net,1433;Initial Catalog=dbVentas;Persist Security Info=False;User ID=galaxy;Password=A123456789123$;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+        - name: UrlSeguridad
+          value: "http://52.155.233.217:8080/"
+        - name: ApiNameSeguridad
+          value: apicompra
+        - name: BusUrl
+          value: "Endpoint=sb://busexamenayma.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=JWfQUoBUVCb2VbYbly/UMqTPG461QKd6hPAG+nnpfdc="
+        - name: BusTopic
+          value: topiccompra
+        - name: BusSuscriptor
+          value: comprasql
+        image: aaronma/testapisql:latest
+        imagePullPolicy: Always        
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: testapisql
+  labels:
+    app: testapisql
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+      name: http-traffic
+  selector:
+    app: testapisql
+  type: LoadBalancer
