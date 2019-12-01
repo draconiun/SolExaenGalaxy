@@ -16,11 +16,11 @@ spec:
       - name: testapienvio
         env:
         - name: UrlSeguridad
-          value: "http://52.155.233.217:8080/"
+          value: "http://testapiseguridad:8080/"
         - name: ApiNameSeguridad
           value: apisender
         - name: BusUrl
-          value: "Endpoint=sb://busexamenayma.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=JWfQUoBUVCb2VbYbly/UMqTPG461QKd6hPAG+nnpfdc="
+          value: "Endpoint=sb://busexamenayma2.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=zoAyh6Lo8tMIPGKyIVfRx9ASqnDZ70mFJvkhPCoeuwc="
         - name: BusTopic
           value: topiccompra
         image: aaronma/testapienvio:latest

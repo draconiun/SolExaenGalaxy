@@ -1,0 +1,748 @@
+{
+	"info": {
+		"_postman_id": "fe4fd66d-60af-46bd-bf98-74bfda256f29",
+		"name": "Examen Galaxy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "VM",
+			"item": [
+				{
+					"name": "Generar Token - ApiSeguridad",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "angular",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "secret",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "apicompra apisender",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "alice",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "65.52.230.194:9013/connect/token",
+							"host": [
+								"65",
+								"52",
+								"230",
+								"194"
+							],
+							"port": "9013",
+							"path": [
+								"connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Compra - ApiSQL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImFmYzM2ZDk2MjFjODVhNzVhN2NmMWNhZDI2YTk5YTdkIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1NzUyMTY3OTYsImV4cCI6MTU3NTIyMDM5NiwiaXNzIjoiaHR0cDovLzY1LjUyLjIzMC4xOTQ6OTAxMyIsImF1ZCI6WyJodHRwOi8vNjUuNTIuMjMwLjE5NDo5MDEzL3Jlc291cmNlcyIsImFwaWNvbXByYSIsImFwaXNlbmRlciJdLCJjbGllbnRfaWQiOiJhbmd1bGFyIiwic3ViIjoiMSIsImF1dGhfdGltZSI6MTU3NTIxNjc5NiwiaWRwIjoibG9jYWwiLCJzY29wZSI6WyJhcGljb21wcmEiLCJhcGlzZW5kZXIiXSwiYW1yIjpbInB3ZCJdfQ.Jm6ll2OSDjlM0126CJFDyrSiotLyly2M7MhnYq5mKSUqpODBYFTlyyG3uIaL2KxDAZ8-JKPNoinlz6wuTHFtnargmUnBEDofstxxqCPybwCeRf1oH1f6pTvZWSvSS9KM_3ZUrlXe8R9v_H7dW3IouumXu4Z186OhuJoipfjTofsKX7xIHQMjokq3Di-M4E9oLUA9AwUUYVQMTqdPU1sqiuNpOLqxR0tFnaJ0xpMQYnHbbw9atMmsUDO3e1Z6yDP3NIy3iYorTZ4cJsPj747R0JUdNrMEari9CI0uc95MjVR0hrxWYgM_weIECU3RwsBcmpM709sKk5FzXfEe08QRew",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "65.52.230.194:9015/api/compra",
+							"host": [
+								"65",
+								"52",
+								"230",
+								"194"
+							],
+							"port": "9015",
+							"path": [
+								"api",
+								"compra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encolar - ApiEnvio",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImFmYzM2ZDk2MjFjODVhNzVhN2NmMWNhZDI2YTk5YTdkIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1NzUyMTY3OTYsImV4cCI6MTU3NTIyMDM5NiwiaXNzIjoiaHR0cDovLzY1LjUyLjIzMC4xOTQ6OTAxMyIsImF1ZCI6WyJodHRwOi8vNjUuNTIuMjMwLjE5NDo5MDEzL3Jlc291cmNlcyIsImFwaWNvbXByYSIsImFwaXNlbmRlciJdLCJjbGllbnRfaWQiOiJhbmd1bGFyIiwic3ViIjoiMSIsImF1dGhfdGltZSI6MTU3NTIxNjc5NiwiaWRwIjoibG9jYWwiLCJzY29wZSI6WyJhcGljb21wcmEiLCJhcGlzZW5kZXIiXSwiYW1yIjpbInB3ZCJdfQ.Jm6ll2OSDjlM0126CJFDyrSiotLyly2M7MhnYq5mKSUqpODBYFTlyyG3uIaL2KxDAZ8-JKPNoinlz6wuTHFtnargmUnBEDofstxxqCPybwCeRf1oH1f6pTvZWSvSS9KM_3ZUrlXe8R9v_H7dW3IouumXu4Z186OhuJoipfjTofsKX7xIHQMjokq3Di-M4E9oLUA9AwUUYVQMTqdPU1sqiuNpOLqxR0tFnaJ0xpMQYnHbbw9atMmsUDO3e1Z6yDP3NIy3iYorTZ4cJsPj747R0JUdNrMEari9CI0uc95MjVR0hrxWYgM_weIECU3RwsBcmpM709sKk5FzXfEe08QRew",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"NombreProveedor\": \"Martiza asociado 33s\",\n\t\"Monto\": 65\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "65.52.230.194:9014/api/envio",
+							"host": [
+								"65",
+								"52",
+								"230",
+								"194"
+							],
+							"port": "9014",
+							"path": [
+								"api",
+								"envio"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "k8s",
+			"item": [
+				{
+					"name": "Generar Token - ApiSeguridad",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "angular",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "secret",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "apicompra apisender",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "alice",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "52.158.113.165:8080/connect/token",
+							"host": [
+								"52",
+								"158",
+								"113",
+								"165"
+							],
+							"port": "8080",
+							"path": [
+								"connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Compra - ApiCompra",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNmNmFkNTJlMjNjYjQ1OTdiNDQzNzZhOWIzNTBjZTEyIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1NzUxNDY0OTUsImV4cCI6MTU3NTE1MDA5NSwiaXNzIjoiaHR0cDovLzUyLjE1OC4xMTMuMTY1OjgwODAiLCJhdWQiOlsiaHR0cDovLzUyLjE1OC4xMTMuMTY1OjgwODAvcmVzb3VyY2VzIiwiYXBpY29tcHJhIiwiYXBpc2VuZGVyIl0sImNsaWVudF9pZCI6ImFuZ3VsYXIiLCJzdWIiOiIxIiwiYXV0aF90aW1lIjoxNTc1MTQ2NDk1LCJpZHAiOiJsb2NhbCIsInNjb3BlIjpbImFwaWNvbXByYSIsImFwaXNlbmRlciJdLCJhbXIiOlsicHdkIl19.u-WkGe6ZIN-KZfCHXD3HFoNfAC9alOQgePG7PqQdLfB-JwvVqbbgCSI29AJii_zJ_WQdplI7l37SoKKbp5V34gCR29t85sOcaycZASFBLwJ5n8D-5iUI1DFfShpvtWVcszvEW2-OoVlxwvwjc34NEp-8buTO1vbhPbc3B0_T6WepGYrYFL_9EmJULWVk5U_3jkgvSuF6scZ_ZTw_gDu4j632JovSD4QEARjwmzQCeQaND13nqzv0RxOlJRsbL19Xv4yW9ebwaaY8RxfC2qsAeLmen5InDMIFJ1Ot6pShmVWk6fSubltEL3wKFOpkf4jgRG7_JjJYozil6DuP5R22FQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "52.158.115.97:8080/api/compra",
+							"host": [
+								"52",
+								"158",
+								"115",
+								"97"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"compra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encolar - ApiEnvio",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNmNmFkNTJlMjNjYjQ1OTdiNDQzNzZhOWIzNTBjZTEyIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1NzUxNDYzOTYsImV4cCI6MTU3NTE0OTk5NiwiaXNzIjoiaHR0cDovLzUyLjE1OC4xMTMuMTY1OjgwODAiLCJhdWQiOlsiaHR0cDovLzUyLjE1OC4xMTMuMTY1OjgwODAvcmVzb3VyY2VzIiwiYXBpY29tcHJhIiwiYXBpc2VuZGVyIl0sImNsaWVudF9pZCI6ImFuZ3VsYXIiLCJzdWIiOiIxIiwiYXV0aF90aW1lIjoxNTc1MTQ2Mzk2LCJpZHAiOiJsb2NhbCIsInNjb3BlIjpbImFwaWNvbXByYSIsImFwaXNlbmRlciJdLCJhbXIiOlsicHdkIl19.K-XveD4HE03-5r0BKpuDXoKILn7L2HzCCEXZyGT3NIMd1QS_wtlNjEPb79V41EYQ2pJaU-FME4Ys2_eA1lJLlzEvbAtoDd2fm9NR70C1u2BB6okURqBdwURQDP9pf8Xd8bodirFvXPNkp0yzkzoiwCA2MPAoSxxgLt9oJE_VQTjrvu-QBssfUdkHZJZFmOFEMfrkhTlFz03RUeZYyb6OF9h88ESeHtv6BsaZQx7EU1wcFiAVIsQ1KgiZdQZZAubo9Y6zsuL6MfX4N8Q1JDiaPsdHmQkf3UBzKY-7PbnTNh9rK2H7dtGfWt15_bjh6So5ANfMsjMXZSbGzHNXgnII8Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"NombreProveedor\": \"Xamarin\",\n\t\"Monto\": 853\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "52.142.86.9:8080/api/envio",
+							"host": [
+								"52",
+								"142",
+								"86",
+								"9"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"envio"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Proxy Reverso",
+			"item": [
+				{
+					"name": "Generar Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "angular",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "secret",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "apicompra apisender",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "alice",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "52.142.127.252:8095/connect/token",
+							"host": [
+								"52",
+								"142",
+								"127",
+								"252"
+							],
+							"port": "8095",
+							"path": [
+								"connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Factura",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjhhZDBkOGEyNTFiZGNjNzE5MzAwNjAzNGE3ZGNlM2VmIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1NzUyMDY0NDUsImV4cCI6MTU3NTIxMDA0NSwiaXNzIjoiaHR0cDovL3Rlc3RhcGlzZWd1cmlkYWQ6ODA4MCIsImF1ZCI6WyJodHRwOi8vdGVzdGFwaXNlZ3VyaWRhZDo4MDgwL3Jlc291cmNlcyIsImFwaWNvbXByYSIsImFwaXNlbmRlciJdLCJjbGllbnRfaWQiOiJhbmd1bGFyIiwic3ViIjoiMSIsImF1dGhfdGltZSI6MTU3NTIwNjQ0NSwiaWRwIjoibG9jYWwiLCJzY29wZSI6WyJhcGljb21wcmEiLCJhcGlzZW5kZXIiXSwiYW1yIjpbInB3ZCJdfQ.QyQ-q2ZccExKM1iQoOImN1Td_5UrsvWNSqRBjRsfyWHY27iyVT1BupZtSjP8BWB7D8HnIpVPZ9qLnWPhHN21WAqC1ht5FBclvY83uqbX214AvINVDvA5LJC7DJ8vEw11q_3VGY30g9SXdSNpZQTY9fZ3YIJadMqG3imgC6ApP6klTfCmb81g8R82KgDt7Z_EbVASLS8Tt5Mff5JoKqFpGwo3Q_-4L-HACiJ-y3hXcdKj0Qf6oNR8neqFE43frk57cDJeuYOns9Ak29u2MsGYBwZnIgv2b52UryPUnegSln-ki4UHg2sUYpW0lzu-_JzBJrnvLHPNNVM5IIstkpZXzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "52.142.127.252:8095/api/compra",
+							"host": [
+								"52",
+								"142",
+								"127",
+								"252"
+							],
+							"port": "8095",
+							"path": [
+								"api",
+								"compra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encolar Compra",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNmNmFkNTJlMjNjYjQ1OTdiNDQzNzZhOWIzNTBjZTEyIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1NzUyMDY1MzQsImV4cCI6MTU3NTIxMDEzNCwiaXNzIjoiaHR0cDovL3Rlc3RhcGlzZWd1cmlkYWQ6ODA4MCIsImF1ZCI6WyJodHRwOi8vdGVzdGFwaXNlZ3VyaWRhZDo4MDgwL3Jlc291cmNlcyIsImFwaWNvbXByYSIsImFwaXNlbmRlciJdLCJjbGllbnRfaWQiOiJhbmd1bGFyIiwic3ViIjoiMSIsImF1dGhfdGltZSI6MTU3NTIwNjUzNCwiaWRwIjoibG9jYWwiLCJzY29wZSI6WyJhcGljb21wcmEiLCJhcGlzZW5kZXIiXSwiYW1yIjpbInB3ZCJdfQ.sfInR3zc2Ev3Dujyx7YPPtv-jfjcDV1yHvyprPB3Rl1C-cNrlL6EoL16ObGytchIhfZvj__dTOss2_K_2KtXDFROX7qCsMi8vAJ9CJ-Tca8zWnzeWq7Usdp204j3K8hz9DgSU0bRVlwYJLuuiQzcfvY_AKkhM2EAV4I-rSEaHEmlPqkEwrD6TFE8UMU_XbfnsbL639lw84Awchx9QkT1xv1-t7dVARTSreQdfpXAyd5WuLa4EF1N1S9R7EPI60qYyg5ZRn_26RoHjkpmfsPWbyGjO3XTJNWnTBOhWxGz1LxH8Mro3iYaQ5JfIssKc3H3KM4jNoURZUWfn4sJyya2RA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"NombreProveedor\": \"Test 3\",\n\t\"Monto\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "52.142.127.252:8095/api/envio",
+							"host": [
+								"52",
+								"142",
+								"127",
+								"252"
+							],
+							"port": "8095",
+							"path": [
+								"api",
+								"envio"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Api Management",
+			"item": [
+				{
+					"name": "Generar Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "angular",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "secret",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "apicompra apisender",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "alice",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://apimanagementaaron.azure-api.net/examayma/connect/token",
+							"protocol": "https",
+							"host": [
+								"apimanagementaaron",
+								"azure-api",
+								"net"
+							],
+							"path": [
+								"examayma",
+								"connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Factura",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNmNmFkNTJlMjNjYjQ1OTdiNDQzNzZhOWIzNTBjZTEyIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1NzUyMTY4NTksImV4cCI6MTU3NTIyMDQ1OSwiaXNzIjoiaHR0cDovL3Rlc3RhcGlzZWd1cmlkYWQ6ODA4MCIsImF1ZCI6WyJodHRwOi8vdGVzdGFwaXNlZ3VyaWRhZDo4MDgwL3Jlc291cmNlcyIsImFwaWNvbXByYSIsImFwaXNlbmRlciJdLCJjbGllbnRfaWQiOiJhbmd1bGFyIiwic3ViIjoiMSIsImF1dGhfdGltZSI6MTU3NTIxNjg1OSwiaWRwIjoibG9jYWwiLCJzY29wZSI6WyJhcGljb21wcmEiLCJhcGlzZW5kZXIiXSwiYW1yIjpbInB3ZCJdfQ.kpCapub4jN9XO2dbWM7HlII4k9hHly77d9532euuxJ1gXaX3LVfBfDd5etZLNPX7HVey_oaaZd2c0lYK34aW6XrG8bAA5ev5yH80H-Qsl6zTHvaluCe5cMgB6k7XQFEtkCepNONMWjWoRBT5On8_vQfvFQYpXsLqBfCVbNUrMDGmdjm0IDj-9Hdp4eN_1mehcX7tZaFKGgjCvTVX2co2Cjdsq0rHL3DgxvsTP7_VCfOPmrs9rJAGEateiAWnbxx64wZVKGP2UO0IIYw-mc4zZfpMdyNJJMVvC_Y3Lvzrwmw6p9N_FadJgMg1Ysj0XPOaRUgfMs0ForHc7nb0nv72Bw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apimanagementaaron.azure-api.net/examayma/api/compra",
+							"protocol": "https",
+							"host": [
+								"apimanagementaaron",
+								"azure-api",
+								"net"
+							],
+							"path": [
+								"examayma",
+								"api",
+								"compra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encolar Factura",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNmNmFkNTJlMjNjYjQ1OTdiNDQzNzZhOWIzNTBjZTEyIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1NzUyMTY4ODAsImV4cCI6MTU3NTIyMDQ4MCwiaXNzIjoiaHR0cDovL3Rlc3RhcGlzZWd1cmlkYWQ6ODA4MCIsImF1ZCI6WyJodHRwOi8vdGVzdGFwaXNlZ3VyaWRhZDo4MDgwL3Jlc291cmNlcyIsImFwaWNvbXByYSIsImFwaXNlbmRlciJdLCJjbGllbnRfaWQiOiJhbmd1bGFyIiwic3ViIjoiMSIsImF1dGhfdGltZSI6MTU3NTIxNjg4MCwiaWRwIjoibG9jYWwiLCJzY29wZSI6WyJhcGljb21wcmEiLCJhcGlzZW5kZXIiXSwiYW1yIjpbInB3ZCJdfQ.RhopiToYtgQU8ZoMC2qpb2WeAf_FaNaiLoAfQN7lAE8yAC8ZjtSrdOzIirvSRX3SNMQTlSClg011k2TOo2Y2QdXF180VI-qCLE1s4YOaYlUhfOKWpTrfYouZbjmtYryG05c_7fm-JiaRT2S8xPSBH2NPwTZmvBtd4kEDaIXoo370QD8XllAWt5Mj69KUpq1PN2Tf9XxtsV-Fptq-vxvV7OqiPrEyzO_uBYNiECTSj_lI6fmQIpktQvOYrNndkKB2FXo8NPqcPQ-kG9nVs-9kHCCA1GOKbN70w9kLXHE4WV4ph16SKnLISy6_QH8t3iyxvIg84CVrZFie6zVhbHZfNg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"NombreProveedor\": \"Wos camepon\",\n\t\"Monto\": 546\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apimanagementaaron.azure-api.net/examayma/api/envio",
+							"protocol": "https",
+							"host": [
+								"apimanagementaaron",
+								"azure-api",
+								"net"
+							],
+							"path": [
+								"examayma",
+								"api",
+								"envio"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Generar Token - ApiSeguridad",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "angular",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "apicompra apisender",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "alice",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:60759/connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "60759",
+					"path": [
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Compra - ApiSQL",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjZmMzY3YTg1NTdmNmZlOTMzNDBjNWYwNjg1MmU2MmNjIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1NzM3ODgxOTcsImV4cCI6MTU3Mzc5MTc5NywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MDc1OSIsImF1ZCI6WyJodHRwOi8vbG9jYWxob3N0OjYwNzU5L3Jlc291cmNlcyIsImFwaWNvbXByYSIsImFwaXNlbmRlciJdLCJjbGllbnRfaWQiOiJhbmd1bGFyIiwic3ViIjoiMSIsImF1dGhfdGltZSI6MTU3Mzc4ODE5NywiaWRwIjoibG9jYWwiLCJzY29wZSI6WyJhcGljb21wcmEiLCJhcGlzZW5kZXIiXSwiYW1yIjpbInB3ZCJdfQ.Fg6zXrc_zy8ipKQ3klpbWBUG7hvYuVuQqxXZ7B9I_Cphbbsn6cV_1btDWgai5KXJG0975ifRHfc7w4efTEvHzwT7rLf4f7Xn_TTWkEf_r4BBU3ktu-esX8fRzNzQA9G3EaXAywz8NfaH6EhocHcvcPaSqyzhguv2YHRtOLoAVHP8jthO4INHZi1AUooCnNpLgVLJNkJuLzeJ-oTQCUpW8GrUAeAYBNTKmcZqQqFkK2S3rgTohQggNmmzXRDaWALL0SdTC6IXa4iULz2hqFjj-w_lyK0aMidJWcwGLCT6_kXF8wcSD0GBlUQXljXsP7QyqyBc8vP8FuTkjPjpWWyWRQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:59045/api/compra",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "59045",
+					"path": [
+						"api",
+						"compra"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Encolamiento Compra - ApiEnvio",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjZmMzY3YTg1NTdmNmZlOTMzNDBjNWYwNjg1MmU2MmNjIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1NzM3OTA1NzksImV4cCI6MTU3Mzc5NDE3OSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MDc1OSIsImF1ZCI6WyJodHRwOi8vbG9jYWxob3N0OjYwNzU5L3Jlc291cmNlcyIsImFwaWNvbXByYSIsImFwaXNlbmRlciJdLCJjbGllbnRfaWQiOiJhbmd1bGFyIiwic3ViIjoiMSIsImF1dGhfdGltZSI6MTU3Mzc5MDU3OSwiaWRwIjoibG9jYWwiLCJzY29wZSI6WyJhcGljb21wcmEiLCJhcGlzZW5kZXIiXSwiYW1yIjpbInB3ZCJdfQ.dFEcocu9WizOf6keavx4FipwGPC_7hYPrumvOn5PTR5UeSw5O0Z1ONk_u01j1L98wCuM_QJIyzRLcKL54N22dmk-6jRi6xMJkkP4vSmGPy70_z61X4bFMNlbHvigvZIT3SjZNtXqiNndeyVvc1MoOAK7tTC7Xd-XZQcHKhY5mqgVTV_rKjrAqmoa4O4LZnMyO4usPC2MCWDFOUeqPj6J_2WO7KobBOlaUYNI11pBhddqVcuRtbi9KsI9I0X7HDsEuUHcWo7TvepOEE8KxDqGpSUCD_BVmDHGGHhLUx1YC2r_kJHky3X13u7JQsJS86g_8hRLRYxeBpI5XCLJaRTBng",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"NombreProveedor\": \"Test\",\n\t\"Monto\": 123\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:61908/api/envio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "61908",
+					"path": [
+						"api",
+						"envio"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
